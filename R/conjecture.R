@@ -1,0 +1,32 @@
+Fig7 <- function(rho=0.5, fill=c("gray85", "gray70"), yaxt=TRUE) {
+  plot(0, 0, xlim=c(-2,2), ylim=c(-2,2), type='n', xaxt='n', yaxt='n', bty='n', xpd=TRUE)
+  polygon(c(-1,-1,1,1), c(1,2,2,1), col=fill[1], border=NA)
+  polygon(c(-1,-1,1,1), -c(1,2,2,1), col=fill[1], border=NA)
+  polygon(c(1,2,2,1), c(-1,-1,1,1), col=fill[1], border=NA)
+  polygon(-c(1,2,2,1), c(-1,-1,1,1), col=fill[1], border=NA)
+  polygon(c(1,1,2,2), c(1,2,2,1), col=fill[2], border=NA)
+  polygon(c(1,1,2,2), -c(1,2,2,1), col=fill[2], border=NA)
+  polygon(-c(1,1,2,2), c(1,2,2,1), col=fill[2], border=NA)
+  polygon(-c(1,1,2,2), -c(1,2,2,1), col=fill[2], border=NA)
+  lines(-2:2, -2:2, lty=2, col='gray')
+  lines(-2:2, 2:-2, lty=2, col='gray')
+  lines(c(1,2), c(1, 1 + rho), type='l')
+  lines(c(1, 1 + rho), c(1,2), type='l')
+  lines(c(1,2), c(-1, -1 + rho), type='l')
+  lines(c(1, 1 - rho), c(-1,-2), type='l')
+  lines(-(2:1), c(1-rho, 1), type="l")
+  lines(-c(1, 1 - rho), c(1,2), type='l')
+  lines(-c(1,2), c(-1, -1 - rho), type='l')
+  lines(-c(1, 1 + rho), c(-1,-2), type='l')
+  xTriLab <- 1.7
+  yTriLab <- if (rho > 0) c(1.15, -0.85) else c(0.85, -1.15)
+  text(xTriLab, yTriLab[1], "A")
+  text(xTriLab, yTriLab[2], "B")
+  axis(1, at=c(-1,0,1), labels=expression(-lambda, 0, lambda))
+  mtext(expression(z[1]), 1, line=2)
+  if (yaxt) {
+    axis(2, at=c(-1,0,1), labels=expression(-lambda, 0, lambda), las=1)
+    mtext(expression(z[2]), 2, line=2, las=1)
+  }
+  mtext(bquote(rho==.(rho)), line=0)
+}
