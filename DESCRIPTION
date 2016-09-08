@@ -7,4 +7,4 @@ Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Reproduce results from the paper "Estimating false inclusion rates in penalized regression models", by Patrick Breheny.
 License: GPL-3
 LazyData: TRUE
-Imports: ggplot2, gridExtra, ncvreg, abind
+Depends: ggplot2, gridExtra, ncvreg, abind

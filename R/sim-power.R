@@ -1,11 +1,11 @@
-Sim <- function() {
+Sim3 <- function() {
   load("~/res/lassoFDR/uncorr/sim1.RData")
   load("~/res/lassoFDR/uncorr/covTest.RData")
   load("~/res/lassoFDR/uncorr/hdi.RData")
   cmp <- abind(cmp, cmpCT, cmpMS, along=3)
   cmp
 }
-Fig <- function() {
+Fig3 <- function() {
   # Setup
   dimnames(cmp)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(cmp)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")

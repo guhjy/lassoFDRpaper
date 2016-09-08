@@ -1,8 +1,8 @@
-Sim <- function() {
+Sim5 <- function() {
   load("~/res/lassoFDR/corr/corr-exch-perm.RData")
   res
 }
-Fig <- function() {
+Fig5 <- function() {
   col <- c(pal(2, alpha=0.5), pal(4, alpha=0.5)[c(2,4)])
   ind <- is.na(res[,,4])
   res[,,4][ind] <- res[,,1][ind]
