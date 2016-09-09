@@ -1,7 +1,6 @@
-Sim2 <- function() {
+Sim2 <- function(N=100) {
   n <- 100
   p1 <- 6
-  N <- 100
   p <- c(60,600)
   K <- c(3,10)
   lam <- exp(seq(log(1.5),log(1.5*.01),len=89))
@@ -25,9 +24,7 @@ Sim2 <- function() {
       X <- std(Data$X)
       y <- as.numeric(scale(Data$y, scale=FALSE))
       z <- crossprod(X,y)/n
-      ##plot(runif(50,-0.1,0.1),z,pch=19, xlim=c(-1,1),col=c(rep("red",6),rep("black",44)),ylim=c(-max(abs(z)),max(abs(z))))
-      fit <- ncvreg(X, y, penalty="lasso", lambda=lam)
-      ##fit <- glmnet(X, y, lambda=lam, family=family[k])
+      fit <- ncvreg(X, y, penalty="lasso", lambda=lam, warn=FALSE)
 
       S1 <- apply(fit$beta[-1,]!=0 & Data$beta!=0, 2, sum)
       S2 <- apply(fit$beta[-1,]!=0 & Data$beta==0 & Data$group<=6, 2, sum)
@@ -78,6 +75,10 @@ Sim2 <- function() {
   list(res=res, cmp=cmp)
 }
 Fig2 <- function(results) {
+  errMsg <- "You first need to run Sim2 and pass its results:
+  results <- Sim2()
+  Fig2(results)"
+  if (missing(results)) stop(errMsg)
   res <- results$res
   res[,,1,4] <- res[,,1,4]*42/60
   res[,,2,4] <- res[,,2,4]*540/600

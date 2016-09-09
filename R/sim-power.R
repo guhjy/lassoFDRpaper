@@ -1,12 +1,13 @@
-Sim3 <- function() {
-  load("~/res/lassoFDR/uncorr/sim1.RData")
-  load("~/res/lassoFDR/uncorr/covTest.RData")
-  load("~/res/lassoFDR/uncorr/hdi.RData")
-  cmp <- abind(cmp, cmpCT, cmpMS, along=3)
-  cmp
-}
-Fig3 <- function() {
+Fig3 <- function(resultsSim2, resultsCT, resultsSS) {
+  errMsg <- "You first need to run Sim2, SimCT, and SimSS:
+  res1 <- Sim2()
+  res2 <- SimCT()
+  res3 <- SimSS()
+  Fig3(res1, res2, res3)"
+  if (missing(resultsSim2) | missing(resultsCT) | missing(resultsSS)) stop(errMsg)
   # Setup
+  cmp <- abind(resultsSim2$cmp, resultsCT, resultsSS, along=3)
+
   dimnames(cmp)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(cmp)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")
   df <- array2df(apply(cmp, 2:4, mean, na.rm=TRUE),var=c("p","Method", "Group", "Avg"))
