@@ -1,10 +1,10 @@
 Package: lassoFDRpaper
 Title: Estimating false inclusion rates in penalized regression models
-Version: 0.1
-Date: 2016-09-08
+Version: 1.0
+Date: 2016-09-14
 Author: Patrick Breheny
 Maintainer: Patrick Breheny <patrick-breheny@uiowa.edu>
 Description: Reproduce results from the paper "Estimating false inclusion rates in penalized regression models", by Patrick Breheny.
 License: GPL-3
 LazyData: TRUE
-Depends: ggplot2, gridExtra, ncvreg, abind, lars, covTest, hdi
+Depends: ggplot2, gridExtra, ncvreg, abind, lars, covTest, hdi, Matrix

@@ -10,7 +10,7 @@ Fig3 <- function(resultsSim2, resultsCT, resultsSS) {
 
   dimnames(cmp)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(cmp)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")
-  df <- array2df(apply(cmp, 2:4, mean, na.rm=TRUE),var=c("p","Method", "Group", "Avg"))
+  df <- array2df(apply(cmp, 2:4, mean, na.rm=TRUE),vars=c("p","Method", "Group", "Avg"))
 
   # Subsets / reordering factors
   ggdf1 <- subset(df, p==60 & Method != "LassoBIC")

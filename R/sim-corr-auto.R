@@ -1,4 +1,5 @@
-Sim4 <- function(include.perm=FALSE, N=ifelse(include.perm, 100, 500)) {
+Sim4 <- function(N=ifelse(include.perm, 100, 500), corr=c("auto", "exch"), include.perm=FALSE) {
+  corr <- match.arg(corr)
   n <- 100
   p1 <- 6
   p <- 500
@@ -14,7 +15,11 @@ Sim4 <- function(include.perm=FALSE, N=ifelse(include.perm, 100, 500)) {
   for (i in 1:N) {
     ## Generate data; fit
     Data1 <- genData(n, p1, J0=6, rho=0)
-    Data2 <- genData(n, p-p1, rho=0.8, beta=0, corr="auto")
+    if (corr=="auto") {
+      Data2 <- genData(n, p-p1, rho=0.8, beta=0, corr="auto")
+    } else {
+      Data2 <- genData(n, p-p1, rho=0.8, beta=0)
+    }
     X <- cbind(Data1$X, Data2$X)
     if (include.perm) {
       pmfit.y <- perm.ncvreg(X, Data1$y, penalty="lasso", lambda=lam, permute="outcome")
