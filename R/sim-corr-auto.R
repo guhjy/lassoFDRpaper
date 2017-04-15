@@ -1,4 +1,4 @@
-Sim4 <- function(N=ifelse(include.perm, 100, 500), corr=c("auto", "exch"), include.perm=FALSE) {
+Sim5 <- function(N=ifelse(include.perm, 100, 500), corr=c("auto", "exch"), include.perm=FALSE) {
   corr <- match.arg(corr)
   n <- 100
   p1 <- 6
@@ -43,7 +43,7 @@ Sim4 <- function(N=ifelse(include.perm, 100, 500), corr=c("auto", "exch"), inclu
   }
   res
 }
-Fig4 <- function(res) {
+Fig5 <- function(res) {
   df <- array2df(apply(res[,,-1], 2:3, sum), vars=c("lambda", "Type", "Avg"))
   S <- apply(res[,,1], 2, sum)
   df$FIR <- df$Avg/S

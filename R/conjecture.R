@@ -1,4 +1,4 @@
-Fig7 <- function(rho=0.5, fill=c("gray85", "gray70")) {
+Fig4 <- function(rho=0.5, fill=c("gray85", "gray70")) {
   plot(0, 0, xlim=c(-2,2), ylim=c(-2,2), type='n', xaxt='n', yaxt='n', bty='n', xpd=TRUE, xlab="", ylab="")
   polygon(c(-1,-1,1,1), c(1,2,2,1), col=fill[1], border=NA)
   polygon(c(-1,-1,1,1), -c(1,2,2,1), col=fill[1], border=NA)

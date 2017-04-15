@@ -1,12 +1,12 @@
-Fig3 <- function(resultsSim2, resultsCT, resultsSS) {
-  errMsg <- "You first need to run Sim2, SimCT, and SimSS:
-  res1 <- Sim2()
-  res2 <- SimCT()
-  res3 <- SimSS()
+Fig3 <- function(resultsSim3 resultsCT, resultsSS) {
+  errMsg <- "You first need to run Sim3 Sim3 and SimSS:
+  res1 <- Sim3()
+  res2 <- Sim3()
+  res3 <- Sim3()
   Fig3(res1, res2, res3)"
-  if (missing(resultsSim2) | missing(resultsCT) | missing(resultsSS)) stop(errMsg)
+  if (missing(resultsSim3 | missing(resultsCT) | missing(resultsSS)) stop(errMsg)
   # Setup
-  cmp <- abind(resultsSim2$cmp, resultsCT, resultsSS, along=3)
+  cmp <- abind(resultsSim3 resultsCT, resultsSS, along=3)
 
   dimnames(cmp)[[3]][1:2] <- c("Univariate", "LassoFIR")
   dimnames(cmp)[[4]] <- c("Causative (A)", "Correlated (B)", "Noise (C)")

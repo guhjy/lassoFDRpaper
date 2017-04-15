@@ -1,4 +1,4 @@
-Fig6 <- function(penalty="lasso") {
+Fig7 <- function(penalty="lasso") {
   loadData("bc-tcga")
   fit <- ncvreg(X, y, penalty=penalty)
   f <- fir(fit)

@@ -1,6 +1,7 @@
-# Estimating false inclusion rates in penalized regression models
-This repository contains the code to reproduce the results in [Estimating false inclusion rates in penalized regression models](http://arxiv.org/pdf/1607.05636v1.pdf), by Patrick Breheny.
-The `fir` function, which actually calculates the false inclusion rates, is implemented in [`ncvreg`](https://github.com/pbreheny/ncvreg).
+# Marginal false discovery rates for penalized regression models
+
+This repository contains the code to reproduce the results in [Marginal false discovery rates for penalized regression models](https://arxiv.org/pdf/1607.05636), by Patrick Breheny.
+The `mfdr` function, which actually calculates the marginal false discovery rates, is implemented in [`ncvreg`](https://github.com/pbreheny/ncvreg).
 
 You can install the package via `devtools` using:
 
@@ -16,4 +17,18 @@ results <- Sim2()
 Fig2(results)
 ```
 
-See the help files (`?Fig3`, and so on) for more details.
+Note about N
+
+## Contents
+
+### Functions
+
+* Sim2(), Fig2(): Reproduces figure 2
+* Sim3(), Fig3(): Reproduces figure 3
+* Fig4(): Reproduces figure 4
+* Sim5(), Fig5(): Reproduces figure 5
+* Sim6(), Fig6(): Reproduces figure 6
+
+### Vignettes
+
+* CS6.1

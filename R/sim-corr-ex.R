@@ -1,4 +1,4 @@
-Fig5 <- function(res) {
+Fig6 <- function(res) {
   col <- c(pal(2, alpha=0.5), pal(4, alpha=0.5)[c(2,4)])
   ind <- is.na(res[,,4])
   res[,,4][ind] <- res[,,1][ind]
