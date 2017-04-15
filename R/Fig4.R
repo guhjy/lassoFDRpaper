@@ -1,5 +1,6 @@
-Fig4 <- function(rho=0.5, fill=c("gray85", "gray70")) {
-  plot(0, 0, xlim=c(-2,2), ylim=c(-2,2), type='n', xaxt='n', yaxt='n', bty='n', xpd=TRUE, xlab="", ylab="")
+source("R/helpers.R")
+cFig <- function(rho=0.5, fill=c("gray85", "gray70"), yaxt=TRUE) {
+  plot(0, 0, xlim=c(-2,2), ylim=c(-2,2), type='n', xaxt='n', yaxt='n', bty='n', xpd=TRUE)
   polygon(c(-1,-1,1,1), c(1,2,2,1), col=fill[1], border=NA)
   polygon(c(-1,-1,1,1), -c(1,2,2,1), col=fill[1], border=NA)
   polygon(c(1,2,2,1), c(-1,-1,1,1), col=fill[1], border=NA)
@@ -24,7 +25,15 @@ Fig4 <- function(rho=0.5, fill=c("gray85", "gray70")) {
   text(xTriLab, yTriLab[2], "B")
   axis(1, at=c(-1,0,1), labels=expression(-lambda, 0, lambda))
   mtext(expression(z[1]), 1, line=2)
-  axis(2, at=c(-1,0,1), labels=expression(-lambda, 0, lambda), las=1)
-  mtext(expression(z[2]), 2, line=2, las=1)
+  if (yaxt) {
+    axis(2, at=c(-1,0,1), labels=expression(-lambda, 0, lambda), las=1)
+    mtext(expression(z[2]), 2, line=2, las=1)
+  }
   mtext(bquote(rho==.(rho)), line=0)
 }
+pdf("fig/Fig4.pdf", 8, 4)
+par(mar=c(3,3,1,0), mfrow=c(1,2))
+cFig(0.5)
+par(mar=c(3,1,1,2))
+cFig(-0.5, yaxt=FALSE)
+dev.off()
